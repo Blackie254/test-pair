@@ -1,7 +1,7 @@
 import express from 'express';
 import fs from 'fs';
 import pino from 'pino';
-import { makeWASocket, useMultiFileAuthState, delay, makeCacheableSignalKeyStore, Browsers, jidNormalizedUser } from '@whiskeysockets/baileys';
+import { makeWASocket, useMultiFileAuthState, delay, fetchLatestBaileysVersion, makeCacheableSignalKeyStore, Browsers, jidNormalizedUser } from '@whiskeysockets/baileys';
 import { upload } from './mega.js';
 
 const router = express.Router();
@@ -28,11 +28,12 @@ router.get('/', async (req, res) => {
 
     // Enhanced session initialization function
     async function initiateSession() {
+        const { version } = await fetchLatestBaileysVersion();
       const { state, saveCreds } = await useMultiFileAuthState(dirs)
 try {
       const Um4r719 = makeWASocket({
         printQRInTerminal: false,
-        version: [2, 3000, 1023223821],
+        version,
         logger: pino({
           level: 'silent',
         }),
