@@ -1,7 +1,7 @@
 import express from 'express';
 import fs from 'fs';
 import pino from 'pino';
-import { makeWASocket, useMultiFileAuthState, delay, fetchLatestBaileysVersion, makeCacheableSignalKeyStore, Browsers, jidNormalizedUser } from '@whiskeysockets/baileys';
+import { makeWASocket, useMultiFileAuthState, delay, makeCacheableSignalKeyStore, Browsers, jidNormalizedUser } from '@whiskeysockets/baileys';
 import { upload } from './mega.js';
 
 const router = express.Router();
@@ -28,17 +28,19 @@ router.get('/', async (req, res) => {
 
     // Enhanced session initialization function
     async function initiateSession() {
-        const { version } = await fetchLatestBaileysVersion();
       const { state, saveCreds } = await useMultiFileAuthState(dirs)
 try {
       const Um4r719 = makeWASocket({
+          auth: {
+                    creds: state.creds,
+                    keys: makeCacheableSignalKeyStore(state.keys, pino({ level: 'fatal' }).child({ level: 'fatal' })),
+                },
+       version: [2, 3000, 1027934701],
         printQRInTerminal: false,
-        version,
         logger: pino({
           level: 'silent',
         }),
-        browser: ['Ubuntu', 'Chrome', '20.0.04'],
-        auth: state,
+        browser: Browsers.windows('Edge'),
       });
 
             if (!Um4r719.authState.creds.registered) {
