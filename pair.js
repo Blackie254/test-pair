@@ -87,7 +87,7 @@ try {
 
                     // Send confirmation message
                     await Um4r719.sendMessage(Um4r719.user.id, { 
-                        text: 'BLACK MD has been successfully linked...Above is your session id, Copy and paste it on the SESSION string during deploy as it will be used for authentication.\n\nAny issue reach me here https://wa.me/message/4MX7ZQCAWRFBP1\n\nGoodluck 🎉.\n' 
+                        text: 'BLACK MD has been successfully linked...Above is your session id, Copy and paste it on the SESSION string during deploy as it will be used for authentication.\n\nAny issue reach me here https://wa.me/message/KPRFMNA4UYOXE1\n\nGoodluck 🎉.\n' 
                     });
 
                     // Clean up session after use
