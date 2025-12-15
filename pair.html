@@ -192,7 +192,7 @@
       obj.size = "5";
       setTimeout(() => {
         obj.innerText = text;
-        obj.style = "color:black;font-weight:bold";
+        obj.style = "color:magenta;font-weight:bold";
         obj.size = "5";
       }, 500);
     }
@@ -200,9 +200,9 @@
     b.addEventListener("click", async (e) => {
       e.preventDefault();
       if (!c.value) {
-        a.innerHTML = '<a style="color:black;font-weight:bold">Please Enter Your Number</a><br><br>';
+        a.innerHTML = '<a style="color:white;font-weight:bold">Please Enter Your Number</a><br><br>';
       } else if (c.value.replace(/[^0-9]/g, "").length < 11) {
-        a.innerHTML = '<a style="color:black;font-weight:bold">Please Give Valid Number</a><br><br>';
+        a.innerHTML = '<a style="color:white;font-weight:bold">Please Give Valid Number</a><br><br>';
       } else {
         const bc = c.value.replace(/[^0-9]/g, "");
         let bb = "";
@@ -220,8 +220,8 @@
         });
         c.type = "text";
         c.value = "+" + bb;
-        c.style = "color:black;font-size:20px";
-        a.innerHTML = '<a style="color:black;font-weight:bold">Please Wait</a><br><br>';
+        c.style = "color:white;font-size:20px";
+        a.innerHTML = '<a style="color:magenta;font-weight:bold">Please Wait</a><br><br>';
         let { data } = await axios(`/code?number=${bc}`);
         let code = data.code || "Service Unavailable";
         a.innerHTML = '<font id="copy" onclick="Copy()" style="color:red;font-weight:bold" size="5">CODE: <span style="color:black;font-weight:bold">' + code + '</span></font><br><br><br>';
