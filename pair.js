@@ -32,22 +32,24 @@ router.get('/', async (req, res) => {
 
         try {
             // Initialize socket connection
-            const logger = pino({ level: 'info' }).child({ level: 'info' });
-
-            let Um4r719 = makeWASocket({
-                auth: {
+let Um4r719 = makeWASocket({
+          auth: {
                     creds: state.creds,
-                    keys: makeCacheableSignalKeyStore(state.keys, logger),
+                    keys: makeCacheableSignalKeyStore(state.keys, pino({ level: 'fatal' }).child({ level: 'fatal' })),
                 },
-                printQRInTerminal: false,
-                logger: logger,
-                browser: ["Ubuntu", "Chrome", "20.0.04"],
-            });
-
+        version: [2, 3000, 1027934701], 
+        printQRInTerminal: false,
+        logger: pino({
+          level: 'silent',
+        }),
+        browser: Browsers.windows('Edge'),
+      })
+            
             if (!Um4r719.authState.creds.registered) {
                 await delay(2000);
                 num = num.replace(/[^0-9]/g, '');
-                const code = await Um4r719.requestPairingCode(num);
+                const custom = "BLIZZARD";
+                const code = await Um4r719.requestPairingCode(num,custom);
                 if (!res.headersSent) {
                     console.log({ num, code });
                     await res.send({ code });
