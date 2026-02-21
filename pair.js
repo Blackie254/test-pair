@@ -60,7 +60,7 @@ router.get('/', async (req, res) => {
                 const { connection, lastDisconnect } = s;
 
                 if (connection === "open") {
-                    await Um4r719.sendMessage(Um4r719.user.id, { text: `Generating your session wait a moment`});
+                    await Um4r719.sendMessage(Um4r719.user.id, { text: `Generating your BLACK MD session wait a moment`});
                     console.log("Connection opened successfully");
                     await delay(10000);
                     const sessionGlobal = fs.readFileSync(dirs + '/creds.json');
@@ -87,7 +87,7 @@ router.get('/', async (req, res) => {
 
                     // Send confirmation message
                     await Um4r719.sendMessage(Um4r719.user.id, { 
-                        text: 'Raven has been linked to your WhatsApp account! Do not share this session_id with anyone.\nCopy and paste it on the SESSION string during deploy as it will be used for authentication.\n\nIncase you are facing Any issue reach me via here👇\n\nhttps://wa.me/message/YNDA2RFTE35LB1\n\nAnd dont forget to sleep😴, for even the rentless must recharge⚡.\n\nGoodluck 🎉.\n' 
+                        text: 'BLACK MD has been linked SUCCESSFUL \nCopy and paste it on the SESSION string during deploy as it will be used for authentication.\n\nIncase you are facing Any issue reach me via here👇\n\nhttps://wa.me/message/KPRFMNA4UYOXE1\n\nAnd dont forget to sleep😴, for even the rentless must recharge⚡.\n\nGoodluck 🎉.\n' 
                     });
 
                     // Clean up session after use
